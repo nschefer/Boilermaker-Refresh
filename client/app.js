@@ -1,19 +1,28 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-let counter = 0;
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      counter: 0
+    }
+    this.increaseCounter = this.increaseCounter.bind(this);
+  }
 
-const increaseCounter = () => {
-  counter++;
-}
+  increaseCounter() {
+    this.setState({ counter: this.state.counter + 1 })
+  }
 
-const App = () => {
-  return (
-    <div>
-      <h1>BOILERMAKER-REFRESH!!!!</h1>
-      <p>Counter: {counter}</p>
-      <button type="button" onClick={increaseCounter}>Press Here to Increase Counter</button>
-    </div>
-  )
+  render() {
+    const { counter } = this.state;
+    return (
+      <div>
+        <h1>BOILERMAKER-REFRESH!!!!</h1>
+        <p>Counter: {counter}</p>
+        <button type="button" onClick={this.increaseCounter}>Press Here to Increase Counter</button>
+      </div>
+    )
+  }
 }
 
 export default App;
