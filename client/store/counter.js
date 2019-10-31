@@ -10,20 +10,20 @@ const MULTIPLY = 'MULTIPLY';
 const DIVIDE = 'DIVIDE';
 
 //action creators
-const increment = () => ({
+export const increment = () => ({
   type: ADD_ONE
 })
 
-const decrement = () => ({
+export const decrement = () => ({
   type: SUBTRACT_ONE
 })
 
-const multiply = num => ({
+export const multiply = num => ({
   type: MULTIPLY,
   num
 })
 
-const divide = num => ({
+export const divide = num => ({
   type: DIVIDE,
   num
 })

@@ -10,3 +10,5 @@ const middleware = applyMiddleware(thunkMiddleware, createLogger({ collapsed: tr
 const store = createStore(reducer, middleware);
 
 export default store;
+export * from './counter';
+
