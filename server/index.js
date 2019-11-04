@@ -7,6 +7,7 @@ const db = require('./db');
 const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const dbStore = new SequelizeStore({ db: db });
+const passport = require('passport');
 
 //logging middleware
 app.use(morgan('dev'));
@@ -36,6 +37,10 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+//passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 //500 error
 app.use((err, req, res, next) => {
