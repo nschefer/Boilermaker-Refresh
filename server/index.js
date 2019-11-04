@@ -3,6 +3,7 @@ const app = express();
 const morgan = require('morgan');
 const path = require('path');
 const bodyParser = require('body-parser');
+const db = require('./db');
 
 //logging middleware
 app.use(morgan('dev'));
@@ -32,6 +33,12 @@ app.use((err, req, res, next) => {
 
 //start the server
 const port = process.env.PORT || 3000;
-app.listen(port, () => {
-  console.log(`Sever listening on port ${port}!`)
-});
+
+db.sync()
+  .then(() => {
+    console.log('db synced')
+    app.listen(port, () => {
+      console.log(`Sever listening on port ${port}!`)
+    });
+  })
+
