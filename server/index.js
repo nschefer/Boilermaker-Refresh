@@ -38,10 +38,6 @@ app.use(session({
   saveUninitialized: false
 }));
 
-//passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
 //500 error
 app.use((err, req, res, next) => {
   console.error(err);
